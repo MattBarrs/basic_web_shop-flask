@@ -1,0 +1,31 @@
+<doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/main.css') }}">
+<center>
+<title>Login</title>
+<h2>login or Create Account</h2>
+
+<a href="{{ url_for('.new_customer') }}"> Create Account</a>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes style="border: 1px solid black">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+         </ul>
+     {% endif %}
+{% endwith %}
+</body>
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    <dl>
+        {{ render_field(form.userNumber) }}
+        {{ render_field(form.password) }}
+
+    </dl>
+    <p><input type=submit value=Submit>
+</form>
+{% block content %}
+{% endblock %}
+
+</center>

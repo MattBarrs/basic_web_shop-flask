@@ -1,0 +1,22 @@
+<doctype html>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/main.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='cart.png') }}">
+
+<center>
+<title>Changing Password</title>
+<h2>Changing Password</h2>
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    <dl>
+        {{ render_field(form.currentPassword) }}
+        {{ render_field(form.newPassword) }}
+
+    </dl>
+    <p><input type=submit value=Submit>
+</form>
+{% block content %}
+{% endblock %}
+
+</center>

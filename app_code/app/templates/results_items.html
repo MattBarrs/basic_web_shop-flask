@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<form action = "/products_OrderSearch" method="POST">
+    <input type="integer" name = "itemId" value=0>
+  <input type="submit" value="Submit">
+</form>
+
+<body>
+    Below is a list of all items which have been ordered. Search for a specific<br/> item using its id  by using the search thing.
+
+</body>
+ <table id="table" border="1">
+  <thead>
+     {%- for column in columns %}
+     <th>
+       {{ column }}
+     </th>
+     {%- endfor %}
+
+  </thead>
+  <tbody>
+  {%- for row in items %}
+     <tr>
+       {%- for column in columns %}
+          <td>
+            {{ row|attr(column) }}
+          </td>
+       {%- endfor %}
+
+
+     </tr>
+
+  {%- endfor %}
+  </tbody>
+  </table>
+
+{% endblock %}
+</center>

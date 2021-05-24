@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ {% block content %}
+
+ <table border="1">
+  <thead>
+   {%- for column in columns %}
+      <th>{{ column }}</th>
+   {%- endfor %}
+  </thead>
+
+  <tbody>
+  {%- for row in items %}
+     <tr>
+     {%- for column in columns %}
+        <td>{{ row|attr(column) }}</td>
+     {%- endfor %}
+     </tr>
+  {%- endfor %}
+  </tbody>
+  </table>
+{% endblock %}
+</center>

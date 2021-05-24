@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+<head>
+ <script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}" ></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='ajax_js.js') }}" ></script>
+</head>
+
+ {% block content %}
+
+<form action = "/" method="POST">
+ <table id="table" border="1">
+  <thead>
+     {%- for column in columns %}
+     <th>
+       {{ column }}
+     </th>
+     {%- endfor %}
+   <th>
+     Quantity
+   </th>
+  </thead>
+  <tbody>
+  {%- for row in items %}
+     <tr>
+       {%- for column in columns %}
+          <td>
+            {{ row|attr(column) }}
+          </td>
+       {%- endfor %}
+       <td>
+         <input type="integer" name = "{{row.Id}}" value=0>
+       </td>
+     </tr>
+
+  {%- endfor %}
+  </tbody>
+  </table>
+  <input type="submit" value="Submit">
+  </form>
+
+{% endblock %}
+</center>

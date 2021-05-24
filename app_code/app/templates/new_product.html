@@ -1,0 +1,22 @@
+<doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/main.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='cart.png') }}">     
+<center>
+<title>New Product</title>
+<h2>Adding New Product</h2>
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    <dl>
+        {{ render_field(form.name) }}
+        {{ render_field(form.details) }}
+        {{ render_field(form.price) }}
+        {{ render_field(form.inStock) }}
+
+    </dl>
+    <p><input type=submit value=Submit>
+</form>
+{% block content %}
+{% endblock %}
+
+</center>
